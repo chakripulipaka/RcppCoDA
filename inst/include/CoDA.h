@@ -8,5 +8,6 @@
 #include <CoDA/codamath.h>
 #include <CoDA/contrast.h>
 #include <CoDA/transforms.h>
+#include <CoDA/transfer.h>
 
 #endif

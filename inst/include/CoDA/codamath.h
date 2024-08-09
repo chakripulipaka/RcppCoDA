@@ -37,6 +37,27 @@ namespace coda {
     X.rowwise() -= n.transpose();
     return X;
   }
+
+  //' Linear form Y=VX
+  //' @param X data (D x N)
+  //' @param V (P X D, e.g., transfer Contrast matrix)
+  //' @details Calculates
+  //'     
+  //'   Y = V * X
+  //'
+  //' @return Eigen::MatrixXd
+  //' @name linForm
+  template <typename TX, typename TV>
+  Eigen::MatrixXd linForm(Eigen::MatrixBase<TX>& X,
+                              Eigen::MatrixBase<TV>& V){
+    int D = X.rows();
+    int N = X.cols();
+    if (X.rows() != V.cols()) throw
+    std::invalid_argument("X.rows() >= V1.cols()");
+
+    return V*X;
+
+  }
   
 } /* End coda Namespace */
 

@@ -180,3 +180,59 @@ Eigen::MatrixXd ilrInv(Eigen::Map<Eigen::MatrixXd>& X,
     return coda::ilrInv(X, VV);
   }
 }
+
+//' @rdname convert_coda
+// [[Rcpp::export]]
+Eigen::MatrixXd iiTransfer(Eigen::Map<Eigen::MatrixXd>& V1, 
+                           Eigen::Map<Eigen::MatrixXd>& V2){
+  return coda::iiTransfer(V1, V2);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd icTransfer(Eigen::Map<Eigen::MatrixXd>& V1){
+  return coda::icTransfer(V1);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd ciTransfer(Eigen::Map<Eigen::MatrixXd>& V2){
+  return coda::ciTransfer(V2);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd iaTransfer(Eigen::Map<Eigen::MatrixXd>& V1, int d2, int D){
+  return coda::iaTransfer(V1, d2, D);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd aiTransfer(int d2, Eigen::Map<Eigen::MatrixXd>& V2, int D){
+  return coda::aiTransfer(d2, V2, D);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd caTransfer(int d2, int D){
+  return coda::caTransfer(d2, D);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd acTransfer(int d1, int D){
+  return coda::acTransfer(d1, D);
+}
+
+//' @rdname convert_coda
+//' @export
+// [[Rcpp::export]]
+Eigen::MatrixXd aaTransfer(int d1, int d2, int D){
+  return coda::aaTransfer(d1, d2, D);
+}
