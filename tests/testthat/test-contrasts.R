@@ -16,6 +16,18 @@ test_that("Contrast Matricies Have Correct Dimension", {
   expect_equal(dim(ilrContrast(D)), c(D-1, D))
   expect_equal(dim(clrContrast(D, inv=FALSE)), c(D, D))
   expect_equal(dim(clrContrast(D, inv=TRUE)), c(D, D))
+
+  V1 <- ilrContrast(D)
+  V2 <- ilrContrast(D)
+  V2 <- V2[-1,]
+  expect_equal(dim(iiTransfer(V1, V2)), c(nrow(V2), nrow(V1)))
+  expect_equal(dim(icTransfer(V1)), c(D, D-1))
+  expect_equal(dim(ciTransfer(V1)), c(D-1, D))
+  expect_equal(dim(iaTransfer(V1, d, D)), c(D-1, D-1))
+  expect_equal(dim(aiTransfer(d, V1, D)), c(D-1, D-1)) ###
+  expect_equal(dim(caTransfer(d, D)), c(D-1, D))
+  expect_equal(dim(acTransfer(d, D)), c(D, D-1))
+  expect_equal(dim(aaTransfer(d, d, D)), c(D-1, D-1))
 })
 
 
